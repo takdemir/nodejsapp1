@@ -5,7 +5,7 @@ const helmet = require("helmet")
 const apiAuth = require("./middleware/apiAuth")
 
 
-let users = [
+/*let users = [
   {
     id: 1,
     name: "Taner",
@@ -23,7 +23,7 @@ let modifiedUsers = users.map((user, index, arr) => {
   return {...user, ...{gender: "male", index}}
 })
 
-console.log(modifiedUsers)
+console.log(modifiedUsers)*/
 
 
 
