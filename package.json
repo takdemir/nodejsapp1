@@ -19,5 +19,8 @@
     "mocha": "^10.0.0",
     "mysql": "^2.18.1",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.1.1"
   }
 }
