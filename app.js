@@ -6,12 +6,11 @@ const apiAuth = require("./middleware/apiAuth")
 
 
 app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   if (req.method === "OPTIONS") {
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "x-auth-token, content-type, authorization, Authorization");
     return res.status(200).send();
   }
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.header("Access-Control-Expose-Headers", "authorization");
   res.header("Access-Control-Expose-Headers", "Authorization");
