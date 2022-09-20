@@ -5,28 +5,19 @@ const helmet = require("helmet")
 const apiAuth = require("./middleware/apiAuth")
 
 
-/*let users = [
-  {
-    id: 1,
-    name: "Taner",
-    lastName: "Akdemir"
-  },
-  {
-    id: 2,
-    name: "Salih Can",
-    lastName: "Erşahin"
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "x-auth-token, content-type, authorization, Authorization");
+    return res.status(200).send();
   }
-]
-
-let modifiedUsers = users.map((user, index, arr) => {
-  console.log("arr",arr)
-  return {...user, ...{gender: "male", index}}
-})
-
-console.log(modifiedUsers)*/
-
-
-
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header("Access-Control-Expose-Headers", "authorization");
+  res.header("Access-Control-Expose-Headers", "Authorization");
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, x-auth-token, authorization, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+  next();
+});
 
 // middleware
 app.use(helmet())
